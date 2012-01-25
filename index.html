@@ -8,7 +8,12 @@
 
 <script type='text/javascript'>
 
-var myGlobal = "Hello App Dev!";
+var myFunc = function() {
+	// This variable declaration exists within a "closure",
+	// so it is not part of the global scope
+	var notGlobalAnymore = "Hello App Dev!";
+}
+myFunc(); // We have to run the function to hit the code
 
 </script>
 
