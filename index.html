@@ -8,11 +8,14 @@
 
 <script type='text/javascript'>
 
-var myFunc = function() {
-	// If you forget the "var", then you've made a global
-	unintentionallyGlobal = "DO NOT DO THIS or I will feed you to Content";
-}
-myFunc(); // We have to run the function to hit the code
+(function() {
+	// Let's put the "var" back, and make an IIFE
+	var notGlobalAnymore = "Less CSS is awesome, btw";
+	console.log(notGlobalAnymore); // Prove our variable exists
+}());
+/* This is what's commonly called an "Immediately invoked
+   function expression", or IIFE. This term was coined by
+   Ben Alman, of our neighbor Bocoup (above Lucky's). */
 
 </script>
 
