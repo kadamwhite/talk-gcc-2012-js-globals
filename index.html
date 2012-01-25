@@ -31,17 +31,15 @@ var gcc = (function() {
 
 <script type='text/javascript'>
 
-// ANTIPATTERN: If you try to re-declare the namespace later (or
-// in a different file), you will overwrite the original object
-// and lose any data contained therein
-var gcc = (function() {
+// The right way to do it: Check that your namespace exists first! There are
+// more bulletproof ways to check existence, but this is the most common:
+var gcc = gcc || {};
+gcc.contents = (function() {
 	var hasWrapper = document.getElementById('wrapper') !== null,
 		hasPTag = document.querySelector('p') !== null;
 	return {
-		'contents' : {
-			'hasWrapper' : hasWrapper,
-			'hasParagraph' : hasPTag
-		}
+		'hasWrapper' : hasWrapper,
+		'hasParagraph' : hasPTag
 	};
 }());
 
