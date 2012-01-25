@@ -9,9 +9,8 @@
 <script type='text/javascript'>
 
 var myFunc = function() {
-	// This variable declaration exists within a "closure",
-	// so it is not part of the global scope
-	var notGlobalAnymore = "Hello App Dev!";
+	// If you forget the "var", then you've made a global
+	unintentionallyGlobal = "DO NOT DO THIS or I will feed you to Content";
 }
 myFunc(); // We have to run the function to hit the code
 
