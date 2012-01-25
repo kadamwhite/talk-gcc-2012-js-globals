@@ -11,15 +11,11 @@
 var gcc = (function() {
 	var neverSeeTheLightOfDay = "Here you can define anything you need for setting up your object",
 		jQueryLoaded = typeof jQuery !== 'undefined';
-	// Object Literal syntax is the fastest way to declare an object,
-	// and lets you easily structure the information you want to apply
-	// to your global namespace
 	return {
 		'capabilities' : {
 			'jQuery' : jQueryLoaded
 		}
 	};
-	// Nothing outside the closure knows about the intermediate steps
 }());
 
 </script>
@@ -31,5 +27,26 @@ var gcc = (function() {
     <h1>Press <span class="monospace">⌘-⌥-I</span> to open the Webkit Inspector</h1>
     <p>(You <em>are</em> using <a href="http://www.google.com/chrome" title="Download Google Chrome">chrome</a>, right?</p>
   </div>
+
+
+<script type='text/javascript'>
+
+// ANTIPATTERN: If you try to re-declare the namespace later (or
+// in a different file), you will overwrite the original object
+// and lose any data contained therein
+var gcc = (function() {
+	var hasWrapper = document.getElementById('wrapper') !== null,
+		hasPTag = document.querySelector('p') !== null;
+	return {
+		'contents' : {
+			'hasWrapper' : hasWrapper,
+			'hasParagraph' : hasPTag
+		}
+	};
+}());
+
+</script>
+
+
 </body>
 </html>
