@@ -1,0 +1,44 @@
+.shadow {
+  -moz-box-shadow:   	inset 0 0 300px #000000;
+  -webkit-box-shadow:	inset 0 0 300px #000000;
+  box-shadow:       	inset 0 0 300px #000000;
+  height:				100%;
+  width:				100%;
+  top:					0;
+  position:				absolute;
+}
+h1 {
+  font-style:			italic;
+  font-weight:			normal;
+  padding-top:			250px;
+  letter-spacing:		2px;
+  text-shadow:			0 1px 1px #aaa;
+}
+p, h1 {
+  color:				#ffffff;
+  text-align:			center;
+}
+p {
+  letter-spacing:		1px;
+  text-shadow:			0 1px 1px #aaa;
+}
+a {
+  text-decoration:		none;
+  color:				#CCB8BC;
+  -webkit-transition:	color .4s linear;  
+  -moz-transition:		color .4s linear;  
+  -o-transition:		color .4s linear;  
+  -ms-transition:		color .4s linear;  
+  transition:			color .4s linear;  
+}
+a:hover {
+	color:	#800020;
+}
+html, body {
+  margin:	0px;
+  height:	100%;
+  width:	100%;
+}
+.monospace {
+	font-family: monospace;
+}
