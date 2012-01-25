@@ -8,12 +8,17 @@
 
 <script type='text/javascript'>
 
-var myGlobalVar = (function() {
-	// To recap, this is invisible to the global scope:
-	var notGlobalAnymore = "Less CSS is awesome, btw";
-	// If you return a value, function or object from an IIFE
-	// then you can easily expose exactly what you want to
-	return notGlobalAnymore.replace(/Less Css/gi,"SCSS");
+var gcc = (function() {
+	var neverSeeTheLightOfDay = "Here you can define anything you need for setting up your object",
+		jQueryLoaded = typeof jQuery !== 'undefined';
+	// Object Literal syntax is the fastest way to declare an object,
+	// and lets you easily structure the information you want to apply
+	// to your global namespace
+	return {
+		'capabilities' : {
+			'jQuery' : jQueryLoaded
+		}
+	};
 	// Nothing outside the closure knows about the intermediate steps
 }());
 
