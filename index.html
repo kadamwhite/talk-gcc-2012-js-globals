@@ -9,11 +9,28 @@
 <script type='text/javascript'>
 
 var gcc = (function() {
-	var neverSeeTheLightOfDay = "Here you can define anything you need for setting up your object",
-		jQueryLoaded = typeof jQuery !== 'undefined';
+	// "Private" variables and functions, which are only available inside the closure
+	var _productsViewed = [],
+		_numTPCs = function() {
+			// How many products has this traveler viewed?
+			return _productsViewed.length;
+		};
+	
+	// Methods which we will expose via the return statement
+	var addTPC = function(tla) {
+			// Add string of the TPC generated to our array
+			_productsViewed.push(tla);
+		},
+		getTopTPC = function() {
+			// Return most recent TPC
+			return _productsViewed[_numTPCs()-1];
+		};
+	
+	// The methods we choose not to expose remain available to the returned functions
 	return {
-		'capabilities' : {
-			'jQuery' : jQueryLoaded
+		customer : {
+			addTPC : addTPC,
+			getTopTPC : getTopTPC
 		}
 	};
 }());
@@ -27,24 +44,5 @@ var gcc = (function() {
     <h1>Press <span class="monospace">⌘-⌥-I</span> to open the Webkit Inspector</h1>
     <p>(You <em>are</em> using <a href="http://www.google.com/chrome" title="Download Google Chrome">chrome</a>, right?</p>
   </div>
-
-
-<script type='text/javascript'>
-
-// The right way to do it: Check that your namespace exists first! There are
-// more bulletproof ways to check existence, but this is the most common:
-var gcc = gcc || {};
-gcc.contents = (function() {
-	var hasWrapper = document.getElementById('wrapper') !== null,
-		hasPTag = document.querySelector('p') !== null;
-	return {
-		'hasWrapper' : hasWrapper,
-		'hasParagraph' : hasPTag
-	};
-}());
-
-</script>
-
-
 </body>
 </html>
