@@ -8,14 +8,14 @@
 
 <script type='text/javascript'>
 
-(function() {
-	// Let's put the "var" back, and make an IIFE
+var myGlobalVar = (function() {
+	// To recap, this is invisible to the global scope:
 	var notGlobalAnymore = "Less CSS is awesome, btw";
-	console.log(notGlobalAnymore); // Prove our variable exists
+	// If you return a value, function or object from an IIFE
+	// then you can easily expose exactly what you want to
+	return notGlobalAnymore.replace(/Less Css/gi,"SCSS");
+	// Nothing outside the closure knows about the intermediate steps
 }());
-/* This is what's commonly called an "Immediately invoked
-   function expression", or IIFE. This term was coined by
-   Ben Alman, of our neighbor Bocoup (above Lucky's). */
 
 </script>
 
